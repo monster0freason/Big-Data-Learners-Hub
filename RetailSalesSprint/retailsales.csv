@@ -1,0 +1,10 @@
+Sales_Date,Amount,Country,Product
+01/23/2005,350000,India,bear
+01/27/2005,380000,India,visky
+02/12/2005,450000,India,Rum
+01/23/2006,500000,USA,bear
+01/27/2006,550000,USA,rum
+02/12/2006,650000,USA,Visky
+01/23/2006,500000,China,Beer
+01/27/2006,550000,China,Visky
+02/12/2006,658000,China,Rum

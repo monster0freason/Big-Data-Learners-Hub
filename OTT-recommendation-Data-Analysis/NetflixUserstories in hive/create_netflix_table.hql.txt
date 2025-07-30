@@ -1,0 +1,28 @@
+-- Add the Hive SerDe library
+ADD JAR /home/ubuntu/apache-hive-2.3.5-bin/lib/hive-serde-2.3.5.jar;
+
+-- Add the required OpenCSV dependency library
+ADD JAR /home/ubuntu/apache-hive-2.3.5-bin/lib/opencsv-2.3.jar;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS netflix (
+    show_id STRING,
+    type STRING,
+    title STRING,
+    director STRING,
+    cast_members STRING,
+    country STRING,
+    release_year INT,
+    rating STRING,
+    duration STRING,
+    listed_in STRING,
+    description STRING,
+    date_added STRING
+)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+   "separatorChar" = ",",
+   "quoteChar"     = "\""
+)
+STORED AS TEXTFILE
+LOCATION '/data/'
+TBLPROPERTIES ("skip.header.line.count"="1");
